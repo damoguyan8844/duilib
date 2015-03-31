@@ -22,11 +22,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qqsetup", "demos\qqsetup\qq
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XLGameBox", "demos\xlgamebox\XLGameBox.vcxproj", "{0278E09B-92AA-4C18-ACB5-EEDF958395B1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BDWallPaper", "demos\bdwallpaper\BDWallPaper.vcxproj", "{565089A1-60C0-4281-99D7-A459E7354EEF}"
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
@@ -52,6 +50,10 @@ Global
 		{0278E09B-92AA-4C18-ACB5-EEDF958395B1}.Debug|Win32.Build.0 = Debug|Win32
 		{0278E09B-92AA-4C18-ACB5-EEDF958395B1}.Release|Win32.ActiveCfg = Release|Win32
 		{0278E09B-92AA-4C18-ACB5-EEDF958395B1}.Release|Win32.Build.0 = Release|Win32
+		{565089A1-60C0-4281-99D7-A459E7354EEF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{565089A1-60C0-4281-99D7-A459E7354EEF}.Debug|Win32.Build.0 = Debug|Win32
+		{565089A1-60C0-4281-99D7-A459E7354EEF}.Release|Win32.ActiveCfg = Release|Win32
+		{565089A1-60C0-4281-99D7-A459E7354EEF}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,5 +63,10 @@ Global
 		{3EF9795D-3509-4664-8E73-8D315CC0B944} = {4B8E29A4-64CC-4274-9622-B358C442D1A7}
 		{797901AA-9447-45C6-AF89-5D5DA54C4159} = {4B8E29A4-64CC-4274-9622-B358C442D1A7}
 		{0278E09B-92AA-4C18-ACB5-EEDF958395B1} = {4B8E29A4-64CC-4274-9622-B358C442D1A7}
+		{565089A1-60C0-4281-99D7-A459E7354EEF} = {4B8E29A4-64CC-4274-9622-B358C442D1A7}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

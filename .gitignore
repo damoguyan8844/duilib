@@ -60,3 +60,15 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+
+*.sdf
+*.ipch
+*.exp
+*.tlog
+*.log
+*.lastbuildstate
+*.cache
+*.pdb
+*.pch
+*.suo
+*.suo

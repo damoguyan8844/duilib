@@ -795,19 +795,27 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
             if( sToolTip.IsEmpty() ) return true;
             ::ZeroMemory(&m_ToolTip, sizeof(TOOLINFO));
             m_ToolTip.cbSize = sizeof(TOOLINFO);
-            m_ToolTip.uFlags = TTF_IDISHWND;
+            m_ToolTip.uFlags = TTF_TRACK;
             m_ToolTip.hwnd = m_hWndPaint;
             m_ToolTip.uId = (UINT_PTR) m_hWndPaint;
             m_ToolTip.hinst = m_hInstance;
             m_ToolTip.lpszText = const_cast<LPTSTR>( (LPCTSTR) sToolTip );
             m_ToolTip.rect = pHover->GetPos();
+			
             if( m_hwndTooltip == NULL ) {
                 m_hwndTooltip = ::CreateWindowEx(0, TOOLTIPS_CLASS, NULL, WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, m_hWndPaint, NULL, m_hInstance, NULL);
                 ::SendMessage(m_hwndTooltip, TTM_ADDTOOL, 0, (LPARAM) &m_ToolTip);
             }
-			::SendMessage( m_hwndTooltip,TTM_SETMAXTIPWIDTH,0, pHover->GetToolTipWidth());
-            ::SendMessage(m_hwndTooltip, TTM_SETTOOLINFO, 0, (LPARAM) &m_ToolTip);
-            ::SendMessage(m_hwndTooltip, TTM_TRACKACTIVATE, TRUE, (LPARAM) &m_ToolTip);
+
+			RECT rt = pHover->GetPos();
+			::SendMessage(m_hwndTooltip,TTM_SETMAXTIPWIDTH,0, pHover->GetToolTipWidth());
+            ::SendMessage(m_hwndTooltip, TTM_SETTOOLINFO, 0, (LPARAM) &m_ToolTip); 
+			::SendMessage(m_hwndTooltip, TTM_TRACKACTIVATE, TRUE, (LPARAM) &m_ToolTip);
+			POINT ptPos = {rt.left, rt.top};
+			::ClientToScreen(m_hWndPaint, &ptPos);
+			ptPos.x -= 0;
+			ptPos.y -= 20;
+			::SendMessage(m_hwndTooltip, TTM_TRACKPOSITION, 0, MAKELPARAM(ptPos.x, ptPos.y));
         }
         return true;
     case WM_MOUSELEAVE:
